@@ -3,6 +3,7 @@ package com.wfc.blogadvanced.api.entity;
 import com.wfc.blogadvanced.common.entity.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -19,7 +20,7 @@ public class Hit extends BaseEntity {
 
     Integer count;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "article_id")
     Article article;
 }
